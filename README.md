@@ -6,6 +6,7 @@ The Software,Farmeworks,Libraries and Packages I'll be using for this Repository
 3. Inkspace + FreeCad + Blendr
 4. MoveIt
 5. Solidworks
+6. Point Cloud Library
 
 # ROS Technology Stack that I'll be learning and implementing 
 1. ROS TF
