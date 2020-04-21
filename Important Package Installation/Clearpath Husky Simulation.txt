@@ -1,0 +1,3 @@
+http://wiki.ros.org/husky_gazebo/Tutorials/Simulating%20Husky
+
+http://wiki.ros.org/husky_control/Tutorials/Interfacing%20with%20Husky
