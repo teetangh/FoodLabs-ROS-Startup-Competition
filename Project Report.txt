@@ -1,0 +1,28 @@
+The goal of this project is to develop an intelligent Smart Hotel System to cater to the needs of Poe, the manager of The Raven Hotel whose neurak networks have severely damaged.This is accomplished by designing,modelling,constructing and assembling a plethora of sensors and software platforms.
+
+Velodyne HDL-32 LIDAR
+
+-created an SDF model of the HDL-32 sensor
+
+-improved the model's appearance and data output and added Mass/Inertia to the model
+
+-Velodyne has a STEP file[A STEP file is a 3D model file formatted in STEP (Standard for the Exchange of Product Data)] for the HDL-32 located on their website. Gazebo can only use STL, OBJ or Collada files, so we'll have to convert this file and then add it to our model.
+
+-So,I used freeCad software to acqurire Meshes, Blendr software to refine the metric system and Gazebo model editor to model the Velodyne Lidar structure. We can optionally download additional textures from the net subsequently. 
+
+//-controlled the model using a plugin, and
+
+-visualized the sensor data in Gazebo and RViz.
+
+Noisy Laser
+
+-implemented a basic Hokuyo fake laser scanner [(hokuyo_node) in ROS] which is a simple steady laser range finder and is used to detect obstacles in its field of vision.
+
+-tweaking the Gaussian noise with respect to the mean and standard deviation of the distribution results in different resolution of the scan samples.
+
+-the laser scan video demonstrates how the laser detects the relative spacing between the laser node and the nearby obstacle and displays the resultant distance as a float value and returns "inf" when there's no obstruction. 
+
+Noisy Camera
+
+
+

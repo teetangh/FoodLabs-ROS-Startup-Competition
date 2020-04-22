@@ -1,10 +1,10 @@
 velodyne Lidar
 
-Noisy camera
 Noisy Laser
+Noisy camera
 Noisy IMU
 
-Claerpath Husky Point Cloud
+Clearpath Husky Point Cloud
 TurtleBot Laser  
 
 Vehicle Sensor(Depth Camera)
