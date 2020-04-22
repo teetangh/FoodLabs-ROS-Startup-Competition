@@ -1,4 +1,5 @@
-The goal of this project is to develop an intelligent Smart Hotel System to cater to the needs of Poe, the manager of The Raven Hotel whose neurak networks have severely damaged.This is accomplished by designing,modelling,constructing and assembling a plethora of sensors and software platforms.
+The goal of this project is to develop an intelligent Smart Hotel System to cater to the needs of Poe, the manager of The Raven Hotel whose neurak networks have severely damaged.This is accomplished by designing,modelling,constructing and assembling a plethora of sensors across multiple software platforms like freeCad,Blender,gazebo.
+ 
 
 Velodyne HDL-32 LIDAR
 
@@ -9,8 +10,6 @@ Velodyne HDL-32 LIDAR
 -Velodyne has a STEP file[A STEP file is a 3D model file formatted in STEP (Standard for the Exchange of Product Data)] for the HDL-32 located on their website. Gazebo can only use STL, OBJ or Collada files, so we'll have to convert this file and then add it to our model.
 
 -So,I used freeCad software to acqurire Meshes, Blendr software to refine the metric system and Gazebo model editor to model the Velodyne Lidar structure. We can optionally download additional textures from the net subsequently. 
-
-//-controlled the model using a plugin, and
 
 -visualized the sensor data in Gazebo and RViz.
 
@@ -24,5 +23,83 @@ Noisy Laser
 
 Noisy Camera
 
+-implemeneted a simple Noisy camera which works very similar to the noisy Laser node.
+
+-one can visulize the imagery reading via the Gazebo Topic Selector from the menu to get the image samples of the noisy camera.This can be intelligently positioned at several locations inside and outside of the hotel to serve as a CCTV camera.
+
+-Again, one can tweak the values of the mean and standard deviation of the Gaussian distribution to get the desired signal-to-noise ration via the model.sdf file.
+
+The Relevant Parameters of the same are as follows: 
+
+<noise>
+  <type>gaussian</type>
+  <mean>"The desired mean value"</mean>
+  <stddev>"The desired standard deviation value"</stddev>
+</noise>  
 
 
+TurtleBot Laser and Vehicle Depth Camera Sensor
+
+-Simulated the ROBOTIS waffle_pi/burger TurtleBot3 provided by the ROBOTIS team,Open Source Robotics Foundation(OSRF) et al.
+
+- The TurtleBot3 can provide on-command patrol at a desired location via the ROS Gazebo Teleop package which interally translates the keyboard bindings into velocity commands and publishes them to the robot through cmd_vel topic. 
+
+-Constructed a simple vehicle mounted with a depth camera sensor using Gazebo model editor which can be parked in vehicle lot and provide the static camera readings via the depth camera feed. 
+
+Clearpath Husky UGV
+
+-Simulated the Husky UGV ,which is an "Outdoor Field Research Robot" provided by Clearpath Robotics in Gazebo .
+
+-Ideology:
+The Husky due to its average stature can manoeuvre through nooks and corners of the hotel indoors (or the hotel outdoors inlcuding the Parking lot) providing intelligent Gmapping SLAM(Simulatneous Localisation and Mapping) with two SICK LMS511 LIDARs.This could reach the verious locations of the hotel and cater to needs of an emergency situation and also provide a moving surveillance of the interior of the hotel.
+
+-Model working:
+
+MAPPING===>
+With reference to the ROS navigation stack,the husky references the 360 degrees laser scan with the LIDARs, the Odometry readings from its wheel encoders and various other sensor transforms(using ROS TF) since the various parts of the robot co-exist with different frames of references to construct a local costmap of the region.  
+
+LOCALISATION===>
+-After mapping of the environment, we proceed onto the localisation since without knowing the local position of the robot with respect to the map renders the map useless.The AMCL(Adaptive Monte Carlo Localisation) package provides a systematic approach to estimate the position of the robot using a Particle Filter(In short:the robot randomly guesses all future poses of robot and also full description of those poses.When the robot moves,it disregards the erroneous guesses via sensor readings thus resulting in convergence of the particle guesses).   
+
+NAVIGATION/PATH PLANNING==>
+Consequently,the robot proceeds to implement the following Path planning algorithms to reach the desired destination or cater to needs of an emergency situation.
+
+Global Planners:
+	A*
+	Dijkstra
+Local Planners:
+	Dynamic Window approach
+	TEB local planner
+
+We can simulatenously visualize the sensor readings via Rviz.
+Sidenote:We can also control the Husky Bot using the teleop command and a PS3 joystick.
+
+Further ideas:
+We could additional enhance the security of the Hotel by providing Aerial surveillance through Quadcopters.
+
+Important Note:
+Due to the lack of powerful graphics computing hardware, I am simulating the model in 2 different instances.
+
+Concluding Remarks:
+Although, I am currently a novice at ROS programming with C++/Python,I assure you that I am a passionate and hard-working student(2nd year Manipal Computer Science and Engineering) with a profound desire to learn.I am currently stipulated by the everyday college schedule and am also pursuing 2 interships one from Machine Learning through Microsoft and another one on Data Analytics through United Nations TakenMind thus resulting in the delay of the project submission.Upon completion of those internships,I would be equipped with various machine learing and computer vision techniques that I could use to contribute to the team.If you feel my qualifications are a good fit for the position, i’d love a chance to work at your Robotics Startup.
+
+
+
+
+Resources used for the project:
+
+Robot Ignite Academy       
+http://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#ros-1-simulation
+http://wiki.ros.org/navigation
+http://wiki.ros.org/hokuyo_node
+http://wiki.ros.org/laser_filters
+https://clearpathrobotics.com/husky-unmanned-ground-vehicle-robot/
+http://gazebosim.org/tutorials?tut=sensor_noise&cat=sensors
+http://gazebosim.org/tutorials?cat=guided_b&tut=guided_b3
+https://github.com/idincern/idincern-husky
+http://wiki.ros.org/amcl
+http://gazebosim.org/tutorials/?tut=ros_depth_camera
+http://wiki.ros.org/kinect
+https://answers.ros.org/question/274564/difference-between-dwa-local_planner-and-teb-local_planner/
+http://wiki.ros.org/mcl_pi
+http://gazebosim.org/tutorials
