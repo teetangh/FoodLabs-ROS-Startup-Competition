@@ -7,6 +7,7 @@ The Software,Farmeworks,Libraries and Packages I'll be using for this Repository
 4. MoveIt
 5. Solidworks
 6. Point Cloud Library
+7. CoppeliaSim (formerly V-REP) and Poppy project(maybe)
 
 # ROS Technology Stack that I'll be learning and implementing 
 1. ROS TF
