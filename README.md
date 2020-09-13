@@ -14,6 +14,11 @@
 # Kinect Sensor 
 ![alt text](Resources/Images/kinect1.png)
 
+# Velodyne (Self Crafted)
+![alt text](Resources/Images/velodyne.png)
+
+![til](Resources/Videos/velodyne_anim.gif)
+
 # Camera 1
 ![alt text](Resources/Images/cam1.png)
 # Camera 2
